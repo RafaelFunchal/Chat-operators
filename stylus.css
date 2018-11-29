@@ -1,6 +1,14 @@
-/* i really want this to be global */
- 
-/* --- General styles --- */
+/* ==UserStyle==
+@name           Happychat Operators
+@namespace      github.com/senff/Chat-operators
+@version        1.1.0
+@description    Make the Happychat Operators list easier to understand.
+@author         Senff
+@updateURL      https://raw.githubusercontent.com/senff/Chat-operators/master/stylus.css
+==/UserStyle== */
+
+@-moz-document domain("hud.happychat.io") {
+    /* --- General styles --- */
     .chat__chat-queue .red {color:#d94f4f;}
     .chat__chat-queue .blue {color:#0087be;}
     .chat__chat-queue .green {color:#4ab866;}
@@ -8,273 +16,274 @@
     .chat__chat-queue .highlight {font-weight: bold;}
  
  
-/* --- Sidebar width --- */
-    .chat__chat-queue {
-        -ms-flex: 0 1 320px;
-        flex: 0 1 320px;
-        min-width: 320px;
-    }
- 
-/* --- Hide some stuff we don't need --- */    
-    .chat__chat-queue .operators__offline,
-    .chat__chat-queue .operators.operators:before,
-    .chat__chat-queue .operators__capacity {
-        display: none;
-    }
- 
-/* --- Operators box --- */
-    .chat__chat-queue .capacity__operators {
-        height: 300px;
-        overflow-y: scroll;
-        border: solid 1px #c0c0c0;
-        padding: 10px;
-        margin: 10px;
-        background: #ffffff;
-        resize: vertical;
-    }
+	/* --- Sidebar width --- */
+		.chat__chat-queue {
+			-ms-flex: 0 1 320px;
+			flex: 0 1 320px;
+			min-width: 320px;
+		}
 
-    .chat__chat-queue .capacity .button {
-        margin:0 10px 10px 10px;
-    }
+	/* --- Hide some stuff we don't need --- */    
+		.chat__chat-queue .operators__offline,
+		.chat__chat-queue .operators.operators:before,
+		.chat__chat-queue .operators__capacity {
+			display: none;
+		}
 
-    #operatorData {
-        width:0; 
-        height: 0; 
-        font-size: 0; 
-        overflow: hidden;
-    }
- 
-/* --- Each individual operator line --- */
-    .chat__chat-queue .operators {
-        display: block;
-        clear: both;
-        margin: 0 0 5px 0;
-        overflow:hidden;
-        font-size: 12px;
-        line-height: 23px;
-    }
- 
-/* --- Removes double entries (is bug) --- */
-    .chat__chat-queue .operator_info {
-        display: none;
-    }
-    .chat__chat-queue .operator_info:nth-of-type(1) {
-        display: block;
-    }
- 
- 
-/* --- Operator icon/name/load/etc. --- */    
-    .chat__chat-queue .operators img {
-        float: left;
-        margin-right: 5px;
-        width: 22px;
-        height: 22px;
-        border: solid 3px transparent;
-    }
- 
-    /* --- Avatar status colors --- */    
-        .chat__chat-queue .operators__available img {border-color:#4ab866;}
-        .chat__chat-queue .operators__reserve img {border-color:#0087be;}
-        .chat__chat-queue .operators__busy img {border-color:#f0b849;}
-        .chat__chat-queue .operators__unavailable img {border-color:#d94f4f;}
- 
-    .chat__chat-queue .operator_name {
-        float:left;
-        padding-right: 10px;
-        font-weight: bold;
-        max-width: 125px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+	/* --- Operators box --- */
+		.chat__chat-queue .capacity__operators {
+			height: 300px;
+			overflow-y: scroll;
+			border: solid 1px #c0c0c0;
+			padding: 10px;
+			margin: 10px;
+			background: #ffffff;
+			resize: vertical;
+		}
 
-    .chat__chat-queue .operator_name.es, 
-    .chat__chat-queue .operator_name.pt-br {
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: auto 19px;
-        padding-left: 23px;
-        margin-left: -3px;
-     }
+		.chat__chat-queue .capacity .button {
+			margin:0 10px 10px 10px;
+		}
 
-    .chat__chat-queue .operator_name.pt-br {
-        background-image: url('https://cdn4.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_Brazil_-_Circle-512.png');
-     }
+		#operatorData {
+			width:0; 
+			height: 0; 
+			font-size: 0; 
+			overflow: hidden;
+		}
 
-    .chat__chat-queue .operator_name.es {
-        background-image: url('https://cdn4.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_Spain_-_Circle-512.png');
-     }
+	/* --- Each individual operator line --- */
+		.chat__chat-queue .operators {
+			display: block;
+			clear: both;
+			margin: 0 0 5px 0;
+			overflow:hidden;
+			font-size: 12px;
+			line-height: 23px;
+		}
 
-    .chat__chat-queue .operator_load {
-        float: right;
-        width: 20px;
-        text-align: right;
-    }
- 
-    .chat__chat-queue .operator_capacity {
-        width: 50px;
-        height: 8px;
-        background: #cccccc;
-        float:right;
-        border-radius: 5px;
-        overflow:hidden;
-        margin: 8px 5px;
-    }
- 
-    .chat__chat-queue .operator_ind {
-        height: 100%;
-        border-radius: 5px;
-    }
- 
-    /* --- Load/throttle colors --- */
-    .capLevel0 .operator_ind {background: #4ab866;}
-    .capLevel1 .operator_ind {background: #4ab866;}
-    .capLevel2 .operator_ind {background: #4ab866;}
-    .capLevel3 .operator_ind {background: #4ab866;}
-    .capLevel4 .operator_ind {background: #4ab866;}
-    .capLevel5 .operator_ind {background: #4ab866;}
-    .capLevel6 .operator_ind {background: #f0b849;}
-    .capLevel7 .operator_ind {background: #f0b849;}
-    .capLevel8 .operator_ind {background: #f0b849;}
-    .capLevel9 .operator_ind {background: #f0b849;}
-    .capLevel10 .operator_ind {background: #d94f4f;}
-    .capLevelOver .operator_ind {background: #660000;}
- 
-/* --- Additional stats --- */
- 
-.operators_stats {
-    margin: 10px;
-    font-size: 12px;
-    border: solid 1px #c0c0c0;
-    background: #ffffff;
-}
- 
-.operators_stats h4 {
-    padding: 0 0 0 10px;
-    margin: 0;
-    background: #e0e0e0;
-    height: 26px;
-    line-height: 26px;
-    cursor: pointer;
-}
- 
-.operators_all_stats {
-    display:none;
-}
- 
-.operators_stats.stats_open .operators_all_stats {
-    border-top: solid 1px #c0c0c0;
-}
- 
-.operators_stats h4 .stats_toggle {
-    float: right;
-    width: 0px;
-    height: 0px;
-    border-top: solid 10px #333333;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    margin: 7px 10px 0 0;
-}
- 
-.operators_stats.stats_open h4 .stats_toggle {
-    border-top: solid 0 #333333;
-    border-bottom: solid 10px #333333;
-    margin: 7px 10px 0 0;
-}
- 
-.stats-block {
-    margin: 5px 0;
-    padding: 0 10px;
-}
- 
-.throttle-count {
-    margin-left: 15px;
-}
+	/* --- Removes double entries (is bug) --- */
+		.chat__chat-queue .operator_info {
+			display: none;
+		}
+		.chat__chat-queue .operator_info:nth-of-type(1) {
+			display: block;
+		}
 
 
-.chat-panel__unread-messages-notice {
-    display: none;
-}
+	/* --- Operator icon/name/load/etc. --- */    
+		.chat__chat-queue .operators img {
+			float: left;
+			margin-right: 5px;
+			width: 22px;
+			height: 22px;
+			border: solid 3px transparent;
+		}
 
-.chat__current-chat__actions,
-.chat-actions__current-chat-action-compose {
-    height: 115px;
-}
+		/* --- Avatar status colors --- */    
+			.chat__chat-queue .operators__available img {border-color:#4ab866;}
+			.chat__chat-queue .operators__reserve img {border-color:#0087be;}
+			.chat__chat-queue .operators__busy img {border-color:#f0b849;}
+			.chat__chat-queue .operators__unavailable img {border-color:#d94f4f;}
 
-.chat__current-chat__actions textarea {
-    height: 110px;
-}
+		.chat__chat-queue .operator_name {
+			float:left;
+			padding-right: 10px;
+			font-weight: bold;
+			max-width: 125px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 
-/* --- Use full text in user buttons --- */
-.user-data-panel__admin-buttons {
-  border: solid 1px #89a8bd;
-  background: white;
-  padding: 5px 5px 0 5px;
-  margin: 0 0 10px 0;
-  text-align: center;
-}
+		.chat__chat-queue .operator_name.es, 
+		.chat__chat-queue .operator_name.pt-br {
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: auto 19px;
+			padding-left: 23px;
+			margin-left: -3px;
+		 }
 
-.user-data-panel__admin-buttons a {
-  font-size: 0;
-  margin: 0 10px 7px 0;
-  background: #f6f6f6;
-}
+		.chat__chat-queue .operator_name.pt-br {
+			background-image: url('https://cdn4.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_Brazil_-_Circle-512.png');
+		 }
 
-.user-data-panel__admin-buttons a::before {
-  font-size: 13px;
-}
+		.chat__chat-queue .operator_name.es {
+			background-image: url('https://cdn4.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_Spain_-_Circle-512.png');
+		 }
 
-.user-data-panel__admin-buttons a:nth-child(1)::before{
-  content:"Report Card";
-}
+		.chat__chat-queue .operator_load {
+			float: right;
+			width: 20px;
+			text-align: right;
+		}
 
-.user-data-panel__admin-buttons a:nth-child(2)::before{
-  content:"Store Admin";
-}
+		.chat__chat-queue .operator_capacity {
+			width: 50px;
+			height: 8px;
+			background: #cccccc;
+			float:right;
+			border-radius: 5px;
+			overflow:hidden;
+			margin: 8px 5px;
+		}
 
-.user-data-panel__admin-buttons a:nth-child(3)::before{
-  content:"Network Admin";
-}
+		.chat__chat-queue .operator_ind {
+			height: 100%;
+			border-radius: 5px;
+		}
 
-.user-data-panel__admin-buttons a:nth-child(4)::before{
-  content:"Payments";
-}
+		/* --- Load/throttle colors --- */
+		.capLevel0 .operator_ind {background: #4ab866;}
+		.capLevel1 .operator_ind {background: #4ab866;}
+		.capLevel2 .operator_ind {background: #4ab866;}
+		.capLevel3 .operator_ind {background: #4ab866;}
+		.capLevel4 .operator_ind {background: #4ab866;}
+		.capLevel5 .operator_ind {background: #4ab866;}
+		.capLevel6 .operator_ind {background: #f0b849;}
+		.capLevel7 .operator_ind {background: #f0b849;}
+		.capLevel8 .operator_ind {background: #f0b849;}
+		.capLevel9 .operator_ind {background: #f0b849;}
+		.capLevel10 .operator_ind {background: #d94f4f;}
+		.capLevelOver .operator_ind {background: #660000;}
+
+	/* --- Additional stats --- */
+
+	.operators_stats {
+		margin: 10px;
+		font-size: 12px;
+		border: solid 1px #c0c0c0;
+		background: #ffffff;
+	}
+
+	.operators_stats h4 {
+		padding: 0 0 0 10px;
+		margin: 0;
+		background: #e0e0e0;
+		height: 26px;
+		line-height: 26px;
+		cursor: pointer;
+	}
+
+	.operators_all_stats {
+		display:none;
+	}
+
+	.operators_stats.stats_open .operators_all_stats {
+		border-top: solid 1px #c0c0c0;
+	}
+
+	.operators_stats h4 .stats_toggle {
+		float: right;
+		width: 0px;
+		height: 0px;
+		border-top: solid 10px #333333;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		margin: 7px 10px 0 0;
+	}
+
+	.operators_stats.stats_open h4 .stats_toggle {
+		border-top: solid 0 #333333;
+		border-bottom: solid 10px #333333;
+		margin: 7px 10px 0 0;
+	}
+
+	.stats-block {
+		margin: 5px 0;
+		padding: 0 10px;
+	}
+
+	.throttle-count {
+		margin-left: 15px;
+	}
 
 
-.chat-panel__return-to-now {
-    display: none;
-}
+	.chat-panel__unread-messages-notice {
+		display: none;
+	}
 
-.chat__current-chat__actions textarea {
-    padding:5px 10px;
-}
+	.chat__current-chat__actions,
+	.chat-actions__current-chat-action-compose {
+		height: 115px;
+	}
 
-.chat__current-chat__actions button {
-    display: none;
-}
+	.chat__current-chat__actions textarea {
+		height: 110px;
+	}
+
+	/* --- Use full text in user buttons --- */
+	.user-data-panel__admin-buttons {
+	  border: solid 1px #89a8bd;
+	  background: white;
+	  padding: 5px 5px 0 5px;
+	  margin: 0 0 10px 0;
+	  text-align: center;
+	}
+
+	.user-data-panel__admin-buttons a {
+	  font-size: 0;
+	  margin: 0 10px 7px 0;
+	  background: #f6f6f6;
+	}
+
+	.user-data-panel__admin-buttons a::before {
+	  font-size: 13px;
+	}
+
+	.user-data-panel__admin-buttons a:nth-child(1)::before{
+	  content:"Report Card";
+	}
+
+	.user-data-panel__admin-buttons a:nth-child(2)::before{
+	  content:"Store Admin";
+	}
+
+	.user-data-panel__admin-buttons a:nth-child(3)::before{
+	  content:"Network Admin";
+	}
+
+	.user-data-panel__admin-buttons a:nth-child(4)::before{
+	  content:"Payments";
+	}
 
 
-.user-blog-panel__button {
-  font-size: 0;
-  margin: 0 10px 3px 0;
-}
+	.chat-panel__return-to-now {
+		display: none;
+	}
 
-.user-blog-panel__button::before {
-  font-size: 14px;
-}
+	.chat__current-chat__actions textarea {
+		padding:5px 10px;
+	}
 
-.user-blog-panel__button:nth-of-type(1)::before{
-  content:"Network Admin";
-}
+	.chat__current-chat__actions button {
+		display: none;
+	}
 
-.user-blog-panel__button:nth-of-type(2)::before{
-  content:"Report Card";
-}
 
-.user-blog-panel__button:nth-of-type(3)::before{
-  content:"WP-admin";
-}
+	.user-blog-panel__button {
+	  font-size: 0;
+	  margin: 0 10px 3px 0;
+	}
 
-.user-blog-panel__button:nth-of-type(4)::before{
-  content:"Customizer";
+	.user-blog-panel__button::before {
+	  font-size: 14px;
+	}
+
+	.user-blog-panel__button:nth-of-type(1)::before{
+	  content:"Network Admin";
+	}
+
+	.user-blog-panel__button:nth-of-type(2)::before{
+	  content:"Report Card";
+	}
+
+	.user-blog-panel__button:nth-of-type(3)::before{
+	  content:"WP-admin";
+	}
+
+	.user-blog-panel__button:nth-of-type(4)::before{
+	  content:"Customizer";
+	}
 }
